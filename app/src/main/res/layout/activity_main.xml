@@ -4,15 +4,148 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:clipToPadding="false"
+    android:background="@color/ingame_background_color"
+    tools:ignore="HardcodedText">
 
-    <TextView
+    <!-- Main Layout -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/id_LogIn_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/questmanager"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_24"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Main_Guideline_3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="HardcodedText" />
+
+    <!-- Field to search -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/txt_main_search"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
+        android:background="@drawable/textfield_background"
+        android:hint="@string/searchhint"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/padding_16"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_16"
+        app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Main_Guideline_3"
+        app:layout_constraintVertical_bias="0.075"
+        tools:ignore="ContentDescription" />
+
+    <!--  btn_search is used to search a question  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_search"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/rectloginlogup"
+        android:onClick="onButtonLoginClick"
+        android:text="@string/search"
+        android:textAllCaps="false"
+        android:textColor="@color/thirdtext"
+        android:textSize="@dimen/textsize_16"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txt_main_search"
+        app:layout_constraintTop_toTopOf="@+id/id_Main_Guideline_3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!--  rv_main_quest is used to show all question to the main screen  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_main_quest"
+        android:layout_width="373dp"
+        android:layout_height="513dp"
+        app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Main_Guideline_3"
+        app:layout_constraintVertical_bias="0.62" />
+
+    <!--  btn_logout is used to logout  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_logout"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="636dp"
+        android:layout_marginEnd="188dp"
+        android:background="@drawable/rectloginlogup"
+        android:text="@string/logout"
+        android:textAllCaps="false"
+        android:textColor="@color/thirdtext"
+        android:textSize="@dimen/textsize_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Main_Guideline_3" />
+
+    <!--  btn_profile is used to direct to activity_profile layout  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_profile"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="636dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rectloginlogup"
+        android:text="@string/profile"
+        android:textAllCaps="false"
+        android:textColor="@color/thirdtext"
+        android:textSize="@dimen/textsize_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Main_Guideline_3" />
+
+    <!-- The id_Main_Guideline_1 is used to limit the left space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Main_Guideline_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <!-- The id_Main_Guideline_2 is used to limit the right space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Main_Guideline_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <!-- The id_Main_Guideline_3 is used to limit the bottom space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Main_Guideline_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <!-- The id_Main_Guideline_4 is used to limit the bottom space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Main_Guideline_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
