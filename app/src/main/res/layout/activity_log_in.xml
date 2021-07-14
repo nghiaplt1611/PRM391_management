@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:background="@color/ingame_background_color"
+    tools:ignore="HardcodedText">
+
+    <!-- Log In Layout -->
+
+    <!-- Layout is used to wrap all of the login item -->
+
+    <ImageView
+        android:id="@+id/id_img_logo"
+        android:layout_width="360dp"
+        android:layout_height="270dp"
+        android:src="@drawable/logowithbackground"
+        app:layout_constraintEnd_toStartOf="@+id/id_Login_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/id_Login_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Login_Guideline_3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="@dimen/dimen_360"
+        android:layout_height="@dimen/dimen_380"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/id_Login_Guideline_4"
+        app:layout_constraintEnd_toEndOf="@id/id_Login_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/id_Login_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/id_img_logo"
+        app:layout_constraintVertical_bias="0.347">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/id_LogIn_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marign_2"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_24"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <!-- Field to fill in user's username -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_Email_textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/margin_15"
+            android:layout_marginRight="@dimen/marign_23"
+            tools:ignore="HardcodedText">
+            <!-- Fill in here -->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/txt_email_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/textfield_background"
+                android:hint="@string/email"
+                android:inputType="text"
+                android:maxLines="1"
+                android:onClick="hideEmailError"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_18"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/id_view_1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_2"
+            android:layout_marginRight="@dimen/marign_23"
+            android:layout_marginBottom="@dimen/marign_16"
+            android:background="@color/linecolor" />
+
+        <!-- Field to fill in user's password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_Password_textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_4"
+            android:layout_marginRight="@dimen/marign_23"
+            android:contentDescription="For more visit www.materialuiux.com">
+            <!-- Fill in here -->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/txt_password_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/textfield_background"
+                android:contentDescription="For more visit www.materialuiux.com"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:onClick="hidePasswordError"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_18"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/id_view_2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_2"
+            android:layout_marginRight="@dimen/marign_23"
+            android:background="@color/linecolor" />
+
+        <!-- Textview is used to direct user to the forgot password site (not design yet) -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/marign_8"
+            android:layout_marginLeft="@dimen/marign_8"
+            android:layout_marginTop="@dimen/marign_12"
+            android:layout_marginEnd="@dimen/marign_8"
+            android:layout_marginRight="@dimen/marign_10"
+            android:onClick="forgotPasswordIntent"
+            android:text="@string/forgot_password"
+            android:textColor="@color/clickable_text"
+            android:textSize="@dimen/textsize_14"
+            android:textStyle="bold" />
+
+        <!-- Button is used to log in -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marign_12"
+            android:background="@drawable/rectloginlogup"
+            android:onClick="onButtonLoginClick"
+            android:text="@string/log_in_button"
+            android:textAllCaps="false"
+            android:textColor="@color/thirdtext"
+            android:textSize="@dimen/textsize_24"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- The id_Login_Guideline_1 is used to limit the left space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Login_Guideline_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <!-- The id_Login_Guideline_2 is used to limit the right space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Login_Guideline_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <!-- The id_Login_Guideline_4 is used to limit the bottom space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Login_Guideline_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <!-- The id_Login_Guideline_4 is used to limit the bottom space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Login_Guideline_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

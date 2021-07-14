@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/liItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ingame_background_color"
+    android:minHeight="100dp"
+    android:orientation="horizontal">
+
+    <!--  Image for the item  -->
+    <ImageView
+        android:id="@+id/lectImage"
+        android:layout_width="196dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="12dp">
+
+        <!--  Item's answer  -->
+        <TextView
+            android:id="@+id/lectname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/ingame_background_color"
+            android:text="@string/answer_list"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_22"
+            android:textStyle="bold" />
+        <!--  Item's level  -->
+        <TextView
+            android:id="@+id/lectid"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/ingame_background_color"
+            android:text="@string/level_list"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_22"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>
