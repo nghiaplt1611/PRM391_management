@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ingame_background_color"
+    tools:context=".controller.ProfileActivity">
+
+    <!--  btn_profile_back is used to direct back to the activity_main layout  -->
+    <Button
+        android:id="@+id/btn_profile_back"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rectmenu"
+        app:backgroundTint="@null"
+        app:icon="@drawable/back"
+        app:iconGravity="textStart"
+        app:iconPadding="1dp"
+        app:iconSize="32dp"
+        app:iconTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_3"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!--  Question manager's avatar  -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_profile_image"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/crosscolor"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Profile_Guideline_3" />
+
+    <!--  btn_camera is used to choose avatar  -->
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/camera_button"
+        android:foregroundGravity="center"
+        app:backgroundTint="@null"
+        app:icon="@drawable/camera"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.709"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/img_profile_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!--  Field is used to display QM's name  -->
+    <TextView
+        android:id="@+id/txt_profile_name"
+        android:layout_width="@dimen/width_300"
+        android:layout_height="@dimen/height_58"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/textline"
+        android:gravity="center_horizontal|center_vertical"
+        android:shadowColor="#F10A0A"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/img_profile_image"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <!--  Field is used to display QM's role  -->
+    <TextView
+        android:id="@+id/txt_profile_role"
+        android:layout_width="@dimen/width_300"
+        android:layout_height="@dimen/height_58"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/textline"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/role"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_24"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profile_name"
+        app:layout_constraintVertical_bias="0.003" />
+
+    <!--  Field is used to display QM's yob  -->
+    <TextView
+        android:id="@+id/txt_profile_yob"
+        android:layout_width="@dimen/width_300"
+        android:layout_height="@dimen/height_58"
+        android:background="@drawable/textline"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/yob"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_24"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profile_role"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <!--  btn_change_pass is used to change password  -->
+    <Button
+        android:id="@+id/btn_change_pass"
+        android:layout_width="@dimen/width_300"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rectmenu"
+        android:text="@string/change_password"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_20"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_update_profile"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!--  btn_update_profile is used to direct to activity_update_profile layout  -->
+    <Button
+        android:id="@+id/btn_update_profile"
+        android:layout_width="@dimen/width_300"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/rectmenu"
+        android:text="@string/update_profile"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_20"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profile_yob"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Profile_Guideline_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".03"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Profile_Guideline_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Profile_Guideline_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Profile_Guideline_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".95" />
+</androidx.constraintlayout.widget.ConstraintLayout>

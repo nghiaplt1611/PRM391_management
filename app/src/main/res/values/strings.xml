@@ -41,15 +41,15 @@
     <string name="coin" translatable="false">Coin</string>
     <string name="register_login" translatable="false">NOT HAVE A GDW ACCOUNT? REGISTER NOW</string>
     <string name="login_register" translatable="false">ALREADY HAVE AN ACCOUNT? LOGIN NOW</string>
-    <string name="highestScore" translatable="false">16516</string>
+    <string name="name" translatable="false">Name</string>
+    <string name="role" translatable="false">Role</string>
     <string name="achievement" translatable="false">Achievement</string>
     <string name="achi_title" translatable="false">Achievement Title</string>
     <string name="updateprofile" translatable="false">Update Profile</string>
     <string name="changepass" translatable="false">CHANGE PASSWORD</string>
     <string name="logout" translatable="false">Log out</string>
     <string name="answer_list" translatable="false">Answer</string>
-    <string name="level_list" translatable="false">Answer</string>
-    <string name="dob">Date of birth</string>
+    <string name="level_list" translatable="false">Level</string>
     <string name="update">Update</string>
     <string name="title_edit_profile">Update your current profile</string>
     <string name="resetpass">Reset password</string>
@@ -57,7 +57,12 @@
     <string name="update_profile">Update profile</string>
     <string name="change_password">Change password</string>
     <string name="how_to_play">How To Play</string>
+    <string name="addnew">Add</string>
+    <string name="addquestion">Add<br>question</br></string>
     <string name="language_eng">ENG</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="chooseimage">Choose image</string>
     <string name="language_vn">VN</string>
     <string name="tobecontinue">Continue</string>
     <!-- TODO: Remove or change this placeholder text -->

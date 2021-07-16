@@ -9,7 +9,7 @@
 
     <!--  Image for the item  -->
     <ImageView
-        android:id="@+id/lectImage"
+        android:id="@+id/iv_list_item"
         android:layout_width="196dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
@@ -24,7 +24,7 @@
 
         <!--  Item's answer  -->
         <TextView
-            android:id="@+id/lectname"
+            android:id="@+id/quest_answer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/ingame_background_color"
@@ -34,7 +34,7 @@
             android:textStyle="bold" />
         <!--  Item's level  -->
         <TextView
-            android:id="@+id/lectid"
+            android:id="@+id/quest_level"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/ingame_background_color"

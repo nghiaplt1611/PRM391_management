@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ingame_background_color"
+    tools:context=".controller.UpdateMainItemActivity">
+
+    <!--  Image of the question  -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_update"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:background="@color/crosscolor"
+        android:maxWidth="@dimen/dimen_200"
+        android:maxHeight="@dimen/dimen_150"
+        app:layout_constraintBottom_toTopOf="@+id/etxt_update_answer"
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3" />
+
+    <!--  btn_update_image is used to update question's image  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_update_image"
+        android:layout_width="@dimen/width_160"
+        android:layout_height="@dimen/height_48"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/rectloginlogup"
+        android:text="@string/chooseimage"
+        android:textAllCaps="false"
+        android:textColor="@color/thirdtext"
+        android:textSize="@dimen/textsize_18"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etxt_update_answer"
+        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toEndOf="@+id/iv_update"
+        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3"
+        app:layout_constraintVertical_bias="0.381" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_update_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_48"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="@string/answer_list"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_20"
+        app:layout_constraintBottom_toTopOf="@+id/txt_update_level"
+        app:layout_constraintEnd_toStartOf="@+id/etxt_update_answer"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/iv_update"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_update_level"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_48"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:text="@string/level_list"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_20"
+        app:layout_constraintBottom_toTopOf="@+id/btn_update_cancel"
+        app:layout_constraintEnd_toStartOf="@+id/etxt_update_level"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1" />
+
+    <!-- Field to update question's answer -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etxt_update_answer"
+        android:layout_width="@dimen/width_240"
+        android:layout_height="@dimen/height_48"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/textfield_background"
+        android:hint="@string/answer_list"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/padding_16"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_20"
+        app:layout_constraintBottom_toTopOf="@+id/etxt_update_level"
+        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
+        tools:ignore="ContentDescription" />
+
+    <!-- Field to update answer's level -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etxt_update_level"
+        android:layout_width="@dimen/width_240"
+        android:layout_height="@dimen/height_48"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/textfield_background"
+        android:hint="@string/level_list"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/padding_16"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_20"
+        app:layout_constraintBottom_toTopOf="@+id/btn_update"
+        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
+        tools:ignore="ContentDescription" />
+
+    <!--  btn_update_cancel is used to back to the activity_main layout  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_update_cancel"
+        android:layout_width="@dimen/width_120"
+        android:layout_height="@dimen/height_48"
+        android:layout_gravity="center"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="196dp"
+        android:background="@drawable/rectloginlogup"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/thirdtext"
+        android:textSize="@dimen/textsize_18"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/id_Update_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/btn_update"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1" />
+
+    <!--  btn_update is used to update the question  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_update"
+        android:layout_width="@dimen/width_120"
+        android:layout_height="@dimen/height_48"
+        android:layout_gravity="center"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginBottom="196dp"
+        android:background="@drawable/rectloginlogup"
+        android:text="@string/update"
+        android:textAllCaps="false"
+        android:textColor="@color/thirdtext"
+        android:textSize="@dimen/textsize_18"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/id_Update_Guideline_4"
+        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2" />
+
+    <!-- The id_Update_Guideline_1 is used to limit the left space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Update_Guideline_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <!-- The id_Update_Guideline_2 is used to limit the right space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Update_Guideline_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <!-- The id_Update_Guideline_3 is used to limit the bottom space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Update_Guideline_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <!-- The id_Update_Guideline_4 is used to limit the bottom space where all items are being place inside -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/id_Update_Guideline_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
