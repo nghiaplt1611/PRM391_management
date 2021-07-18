@@ -14,11 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="@string/questmanager"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_24"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txt_main_search"
         app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
@@ -39,10 +41,9 @@
         android:paddingLeft="@dimen/padding_16"
         android:textColor="@color/black"
         android:textSize="@dimen/textsize_16"
-        app:layout_constraintBottom_toTopOf="@+id/rv_main_quest"
+        app:layout_constraintEnd_toStartOf="@+id/btn_search"
         app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
         app:layout_constraintTop_toBottomOf="@+id/id_Main_TextView"
-        app:layout_constraintVertical_bias="0.502"
         tools:ignore="ContentDescription" />
 
     <!--  btn_search is used to search a question  -->
@@ -57,22 +58,12 @@
         android:textColor="@color/thirdtext"
         android:textSize="@dimen/textsize_16"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/rv_main_quest"
         app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
         app:layout_constraintHorizontal_bias="0.74"
         app:layout_constraintStart_toEndOf="@+id/txt_main_search"
         app:layout_constraintTop_toBottomOf="@+id/id_Main_TextView" />
 
     <!--  rv_main_quest is used to show all question to the main screen  -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_main_quest"
-        android:layout_width="@dimen/width_370"
-        android:layout_height="@dimen/height_515"
-        android:layout_marginBottom="72dp"
-        app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
-        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1" />
 
     <!--  btn_logout is used to logout  -->
     <androidx.appcompat.widget.AppCompatButton
@@ -90,9 +81,7 @@
         app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
         app:layout_constraintEnd_toStartOf="@+id/btn_main_add"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
-        app:layout_constraintTop_toBottomOf="@+id/rv_main_quest"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1" />
 
     <!--  btn_logout is used to direct to activity_add_main_item layout  -->
     <androidx.appcompat.widget.AppCompatButton
@@ -108,9 +97,7 @@
         app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
         app:layout_constraintEnd_toStartOf="@+id/btn_profile"
         app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1"
-        app:layout_constraintTop_toBottomOf="@+id/rv_main_quest"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1" />
 
     <!--  btn_profile is used to direct to activity_profile layout  -->
     <androidx.appcompat.widget.AppCompatButton
@@ -118,19 +105,17 @@
         android:layout_width="@dimen/width_120"
         android:layout_height="@dimen/height_48"
         android:layout_gravity="center"
-        android:paddingLeft="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/cut_3"
+        android:paddingLeft="15dp"
         android:text="@string/profile"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"
         android:textSize="@dimen/textsize_16"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
-        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2"
-        app:layout_constraintTop_toBottomOf="@+id/rv_main_quest"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintEnd_toStartOf="@+id/id_Main_Guideline_2" />
 
     <!-- The id_Main_Guideline_1 is used to limit the left space where all items are being place inside -->
     <androidx.constraintlayout.widget.Guideline
@@ -163,6 +148,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.97" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_main_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

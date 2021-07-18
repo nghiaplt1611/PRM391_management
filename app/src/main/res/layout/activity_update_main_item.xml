@@ -8,16 +8,6 @@
     tools:context=".controller.UpdateMainItemActivity">
 
     <!--  Image of the question  -->
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_update"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:background="@color/crosscolor"
-        android:maxWidth="@dimen/dimen_200"
-        android:maxHeight="@dimen/dimen_150"
-        app:layout_constraintBottom_toTopOf="@+id/etxt_update_answer"
-        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
-        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3" />
 
     <!--  btn_update_image is used to update question's image  -->
     <androidx.appcompat.widget.AppCompatButton
@@ -25,89 +15,43 @@
         android:layout_width="@dimen/width_160"
         android:layout_height="@dimen/height_48"
         android:layout_gravity="center"
-        android:layout_marginBottom="28dp"
         android:background="@drawable/rectloginlogup"
         android:text="@string/chooseimage"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"
         android:textSize="@dimen/textsize_18"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etxt_update_answer"
         app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
-        app:layout_constraintHorizontal_bias="0.851"
-        app:layout_constraintStart_toEndOf="@+id/iv_update"
-        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3"
-        app:layout_constraintVertical_bias="0.381" />
+        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_update_answer"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_48"
-        android:layout_marginRight="36dp"
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="@string/answer_list"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_20"
         app:layout_constraintBottom_toTopOf="@+id/txt_update_level"
-        app:layout_constraintEnd_toStartOf="@+id/etxt_update_answer"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
-        app:layout_constraintTop_toBottomOf="@+id/iv_update"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_update_level"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_48"
-        android:layout_marginRight="36dp"
         android:layout_marginBottom="60dp"
         android:gravity="center"
         android:text="@string/level_list"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_20"
         app:layout_constraintBottom_toTopOf="@+id/btn_update_cancel"
-        app:layout_constraintEnd_toStartOf="@+id/etxt_update_level"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1" />
 
     <!-- Field to update question's answer -->
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etxt_update_answer"
-        android:layout_width="@dimen/width_240"
-        android:layout_height="@dimen/height_48"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/textfield_background"
-        android:hint="@string/answer_list"
-        android:inputType="text"
-        android:maxLines="1"
-        android:paddingLeft="@dimen/padding_16"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textsize_20"
-        app:layout_constraintBottom_toTopOf="@+id/etxt_update_level"
-        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
-        tools:ignore="ContentDescription" />
+
 
     <!-- Field to update answer's level -->
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etxt_update_level"
-        android:layout_width="@dimen/width_240"
-        android:layout_height="@dimen/height_48"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/textfield_background"
-        android:hint="@string/level_list"
-        android:inputType="text"
-        android:maxLines="1"
-        android:paddingLeft="@dimen/padding_16"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textsize_20"
-        app:layout_constraintBottom_toTopOf="@+id/btn_update"
-        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
-        tools:ignore="ContentDescription" />
 
     <!--  btn_update_cancel is used to back to the activity_main layout  -->
     <androidx.appcompat.widget.AppCompatButton
@@ -125,13 +69,13 @@
         android:textSize="@dimen/textsize_18"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/id_Update_Guideline_4"
-        app:layout_constraintEnd_toStartOf="@+id/btn_update"
+        app:layout_constraintEnd_toStartOf="@+id/btn_update_confirm"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1" />
 
     <!--  btn_update is used to update the question  -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_update"
+        android:id="@+id/btn_update_confirm"
         android:layout_width="@dimen/width_120"
         android:layout_height="@dimen/height_48"
         android:layout_gravity="center"
@@ -178,5 +122,55 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.97" />
+
+    <EditText
+        android:id="@+id/update_txt_answer"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/edit_profile_border"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Answer"
+        app:layout_constraintBottom_toTopOf="@+id/update_txt_level"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/update_txt_level"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="58dp"
+        android:background="@drawable/edit_profile_border"
+        android:ems="10"
+        android:inputType="number|textPersonName"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Level"
+        app:layout_constraintBottom_toTopOf="@+id/btn_update_cancel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_update_image"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
+        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3"
+        app:srcCompat="@drawable/_014_07_17_00_43_58_1" />
+
+    <Button
+        android:id="@+id/btn_upload_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_update_image"
+        app:layout_constraintTop_toBottomOf="@+id/btn_update_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

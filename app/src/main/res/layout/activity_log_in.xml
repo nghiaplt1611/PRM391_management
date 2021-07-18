@@ -145,7 +145,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/marign_12"
             android:background="@drawable/rectloginlogup"
-            android:onClick="onButtonLoginClick"
+            android:onClick="Login"
             android:text="@string/log_in_button"
             android:textAllCaps="false"
             android:textColor="@color/thirdtext"
