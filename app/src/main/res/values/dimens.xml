@@ -55,6 +55,7 @@
     <dimen name="swithc_icon_size">25dp</dimen>
     <dimen name="width_180">180dp</dimen>
     <dimen name="width_300">300dp</dimen>
+    <dimen name="width_150">150dp</dimen>
     <dimen name="width_240">240dp</dimen>
     <dimen name="width_120">120dp</dimen>
     <dimen name="width_160">160dp</dimen>
