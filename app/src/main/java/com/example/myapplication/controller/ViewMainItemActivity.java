@@ -12,5 +12,6 @@ public class ViewMainItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_main_item);
+        getSupportActionBar().hide();
     }
 }

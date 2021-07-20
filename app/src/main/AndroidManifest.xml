@@ -22,7 +22,7 @@
             android:name=".controller.adapter.MainItemAdapterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".controller.LogInActivity"
+            android:name=".controller.account.LogInActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

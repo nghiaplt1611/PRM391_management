@@ -12,5 +12,6 @@ public class UpdateMainItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_main_item);
+        getSupportActionBar().hide();
     }
 }
