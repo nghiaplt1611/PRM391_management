@@ -1,6 +1,8 @@
 package com.example.myapplication.model;
 
-public class Question {
+import java.io.Serializable;
+
+public class Question implements Serializable {
     private String id;
     private String imageURL;
     private String answer;
@@ -8,6 +10,14 @@ public class Question {
     private boolean status;
 
     public Question() {
+    }
+
+    public Question(String id, String imageURL, String answer, int level, boolean status) {
+        this.id = id;
+        this.imageURL = imageURL;
+        this.answer = answer;
+        this.level = level;
+        this.status = status;
     }
 
     public String getId() {
