@@ -1,9 +1,5 @@
 package com.example.myapplication.controller;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,15 +19,19 @@ import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.dao.QuestionDAO;
 import com.example.myapplication.model.Question;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -43,6 +43,7 @@ public class UpdateMainItemActivity extends AppCompatActivity {
     public Uri imgUri ;
     StorageReference storageReference;
     ProgressDialog progressDialog;
+    String imageURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class UpdateMainItemActivity extends AppCompatActivity {
 
         Intent data = getIntent();
         Question question = (Question) data.getSerializableExtra("ques");
+
 
 
         pic = findViewById(R.id.img_update_image);
@@ -65,6 +67,8 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         Button cancelUp = findViewById(R.id.btn_update_cancel);
         Button choosePic = findViewById(R.id.btn_update_image);
         Button uploadImg = findViewById(R.id.btn_upload_img);
+
+        imageURL = question.getImageURL();
 
         uploadImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,9 +94,11 @@ public class UpdateMainItemActivity extends AppCompatActivity {
                 question.setLevel(Integer.valueOf(level.getText().toString()));
 //                update(question);
 //                QuestionDAO.updateQuestion(question);
+
                 HashMap map = new HashMap();
                 map.put("answer",question.getAnswer());
                 map.put("level",question.getLevel());
+                map.put("imageURL",imageURL);
                 MainActivity.db.collection("questions").document(question.getId()).update(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -146,15 +152,29 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         String filename = format.format(now);
 
         storageReference = FirebaseStorage.getInstance().getReference(filename);
+//        Log.e("de lieu lay ve",""+storageReference.getDownloadUrl());
         storageReference.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(UpdateMainItemActivity.this,"Successfully Uploaded!!!",Toast.LENGTH_SHORT);
-                if (progressDialog.isShowing()){
-                    Picasso.get().load(imgUri).into(pic);
-                    imgUri = taskSnapshot.getUploadSessionUri();
-                    System.out.println("link "+imgUri);
-                    progressDialog.dismiss();
+            public void onSuccess( UploadTask.TaskSnapshot taskSnapshot) {
+//                Toast.makeText(UpdateMainItemActivity.this,"Successfully Uploaded!!!",Toast.LENGTH_SHORT);
+                Picasso.get().load(imgUri).into(pic);
+
+                Log.e("link",""+ storageReference.getDownloadUrl());
+
+                taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        imageURL = uri.toString();
+                        Log.e("lay ra sau khi success",""+imageURL);
+                    }
+                });
+                Log.e("lay ra sau khi success",""+imageURL);
+            }
+        }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if (task.isComplete()){
+                    Log.e("cai result",""+task.getResult().getMetadata().getReference().getDownloadUrl());
                 }
 
             }
