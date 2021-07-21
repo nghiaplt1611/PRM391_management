@@ -2,7 +2,7 @@ package com.example.myapplication.dao;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.controller.MainActivity;
 import com.example.myapplication.model.Account;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;

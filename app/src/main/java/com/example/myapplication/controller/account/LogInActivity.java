@@ -4,15 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.controller.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.dao.QuestionDAO;
 import com.example.myapplication.dao.UserDAO;
+import com.example.myapplication.utilities.LoadingPopup;
 import com.example.myapplication.utilities.AlertDialogBuilder;
 import com.example.myapplication.utilities.Validation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,11 +26,24 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LogInActivity extends AppCompatActivity {
 
+    Dialog loadingDiag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
         getSupportActionBar().hide();
+        //QuestionDAO.getAllQuestion();
+    }
+
+    public void Login(View v){
+        loadingDiag = LoadingPopup.loadingDialog(this);
+        loadingDiag.show();
+        new Handler().postDelayed(this::openList,2000);
+    }
+
+    public void openList(){
+        Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+        LogInActivity.this.startActivity(intent);
     }
 
     public void onButtonLoginClick(View view) {

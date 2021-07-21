@@ -1,11 +1,10 @@
 package com.example.myapplication.dao;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.controller.MainActivity;
 import com.example.myapplication.model.Question;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,7 +18,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 public class QuestionDAO {
 

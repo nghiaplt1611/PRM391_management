@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ingame_background_color"
-    tools:context=".controller.UpdateProfileActivity">
+    tools:context=".controller.account.UpdateProfileActivity">
 
     <TextView
         android:id="@+id/lbl_title_edit_profile"
@@ -20,12 +20,14 @@
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile_update"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="@dimen/marign_12"
-        android:background="@color/crosscolor"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/avatar_1"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.497"

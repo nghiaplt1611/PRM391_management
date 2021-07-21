@@ -13,11 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".controller.UpdateProfileActivity" />
-        <activity android:name=".controller.ProfileActivity" />
-        <activity android:name=".controller.AddMainItemActivity" />
-        <activity android:name=".controller.UpdateMainItemActivity" />
-        <activity android:name=".controller.ViewMainItemActivity" />
+        <activity android:name=".controller.account.UpdateProfileActivity" />
+        <activity android:name=".controller.account.ProfileActivity" />
+        <activity android:name=".controller.question.AddMainItemActivity" />
+        <activity android:name=".controller.question.UpdateMainItemActivity" />
+        <activity android:name=".controller.question.ViewMainItemActivity" />
         <activity
             android:name=".controller.adapter.MainItemAdapterActivity"
             android:screenOrientation="portrait" />
@@ -25,7 +25,7 @@
             android:name=".controller.account.LogInActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".controller.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,11 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
 
-        </activity>
     </application>
 
 </manifest>

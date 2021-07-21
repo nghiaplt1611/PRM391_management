@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ingame_background_color"
-    tools:context=".controller.ViewMainItemActivity">
+    tools:context=".controller.question.ViewMainItemActivity">
 
         <!--  Image of the question  -->
     <androidx.appcompat.widget.AppCompatImageView
