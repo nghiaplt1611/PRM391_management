@@ -1,4 +1,4 @@
-package com.example.myapplication.controller.adapter;
+package com.example.myapplication.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,11 @@ import android.os.Bundle;
 
 import com.example.myapplication.R;
 
-public class MainItemAdapterActivity extends AppCompatActivity {
+public class UpdateGameScoreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_item_adapter);
-        getSupportActionBar().hide();
-
+        setContentView(R.layout.activity_update_game_score);
     }
 }

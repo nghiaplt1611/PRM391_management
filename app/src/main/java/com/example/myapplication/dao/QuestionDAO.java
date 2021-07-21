@@ -34,7 +34,7 @@ public class QuestionDAO {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 System.out.println("qua day trc");
-                    listQuestion.clear();
+                    listQuestion = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Question ques = document.toObject(Question.class);
                         listQuestion.add(ques);

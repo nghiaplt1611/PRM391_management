@@ -23,17 +23,21 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
 
-        QuestionDAO.getAllQuestion();
+
     }
 
     public void Login(View v){
+        QuestionDAO.getAllQuestion();
         loadingDiag = LoadingPopup.loadingDialog(this);
         loadingDiag.show();
         new Handler().postDelayed(this::openList,2000);
+
     }
 
     public void openList(){
+        loadingDiag.dismiss();
         Intent intent = new Intent(LogInActivity.this, MainActivity.class);
         LogInActivity.this.startActivity(intent);
+
     }
 }
