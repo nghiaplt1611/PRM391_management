@@ -20,24 +20,26 @@
         app:layout_constraintStart_toStartOf="@+id/id_Update_Profile_Guideline_1"
         app:layout_constraintTop_toTopOf="@+id/id_Update_Profile_Guideline_3" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile_update"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="@dimen/marign_12"
-        android:background="@color/crosscolor"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/avatar_1"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/id_Update_Profile_Guideline_4"
         app:layout_constraintEnd_toStartOf="@+id/id_Update_Profile_Guideline_2"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/id_Update_Profile_Guideline_1"
         app:layout_constraintTop_toBottomOf="@+id/lbl_title_edit_profile"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintVertical_bias="0.013"/>
 
     <TextView
         android:id="@+id/lbl_name_edit_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="@string/full_name"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -56,6 +58,7 @@
         android:background="@drawable/edit_profile_border"
         android:ems="10"
         android:gravity="center|start"
+        android:onClick="hideFullNameError"
         android:paddingLeft="30px"
         android:textColor="@color/black"
         android:textSize="@dimen/textsize_20"
@@ -123,6 +126,7 @@
         android:ems="10"
         android:gravity="center|start"
         android:inputType="number|numberDecimal"
+        android:onClick="hideYearOfBirthError"
         android:paddingLeft="@dimen/padding_30"
         android:textColor="@color/black"
         android:textSize="@dimen/textsize_20"
@@ -158,6 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/rectmenu"
+        android:onClick="onButtonUpdateClick"
         android:text="@string/update"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_20"
