@@ -18,6 +18,7 @@
         <activity android:name=".controller.question.AddMainItemActivity" />
         <activity android:name=".controller.question.UpdateMainItemActivity" />
         <activity android:name=".controller.question.ViewMainItemActivity" />
+        <activity android:name=".controller.UpdateGameScoreActivity"></activity>
         <activity
             android:name=".controller.adapter.MainItemAdapterActivity"
             android:screenOrientation="portrait" />
@@ -33,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

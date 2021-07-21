@@ -14,6 +14,5 @@ public class MainItemAdapterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_item_adapter);
         getSupportActionBar().hide();
 
-
     }
 }

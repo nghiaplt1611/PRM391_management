@@ -52,6 +52,7 @@
     <string name="level_list" translatable="false">Level</string>
     <string name="update">Update</string>
     <string name="title_edit_profile">Update your current profile</string>
+    <string name="title_edit_score">Update Game Score</string>
     <string name="resetpass">Reset password</string>
     <string name="profile" translatable="false">Profile</string>
     <string name="update_profile">Update profile</string>
@@ -65,6 +66,11 @@
     <string name="chooseimage">Choose image</string>
     <string name="language_vn">VN</string>
     <string name="tobecontinue">Continue</string>
+    <string name="question_score" translatable="false">Question score</string>
+    <string name="hint_score" translatable="false">Hint score</string>
+    <string name="inital_score" translatable="false">Initial score</string>
+    <string name="pass_level_score" translatable="false">Pass level score</string>
+    <string name="wrong_score" translatable="false">Wrong score</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="h2p_text">See the suggested image and choose the letters that can make a combination to give out the correct answer</string>
