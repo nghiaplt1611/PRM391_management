@@ -27,6 +27,10 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void Login(View v){
+        //Code login
+
+
+
         QuestionDAO.getAllQuestion();
         loadingDiag = LoadingPopup.loadingDialog(this);
         loadingDiag.show();
