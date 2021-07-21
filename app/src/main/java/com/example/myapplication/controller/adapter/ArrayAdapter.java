@@ -27,7 +27,6 @@ public class ArrayAdapter extends android.widget.ArrayAdapter<Question> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Log.e("text","chay qua dc");
         View listItemView = convertView;
         if (listItemView ==null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.custom_listview,parent,false);

@@ -99,7 +99,7 @@ public class UpdateMainItemActivity extends AppCompatActivity {
 //                QuestionDAO.updateQuestion(question);
 
                 HashMap map = new HashMap();
-                map.put("answer",question.getAnswer());
+                map.put("answer",question.getAnswer().toUpperCase());
                 map.put("level",question.getLevel());
                 map.put("imageURL",imgUri);
                 MainActivity.db.collection("questions").document(question.getId().toString()).update(map)
@@ -112,7 +112,6 @@ public class UpdateMainItemActivity extends AppCompatActivity {
                                     Intent intent = new Intent(UpdateMainItemActivity.this, MainActivity.class);
                                     intent.putExtra("quesBack",question);
                                     setResult(0,intent);
-                                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> trc khi ve menu "+question.getAnswer());
                                     QuestionDAO.getAllQuestion();
                                     loadingDiag = LoadingPopup.loadingDialog(UpdateMainItemActivity.this);
                                     loadingDiag.show();
@@ -120,7 +119,6 @@ public class UpdateMainItemActivity extends AppCompatActivity {
                                     new Handler().postDelayed(UpdateMainItemActivity.this::closeUpdate,2000);
 
                                 }else {
-                                    Log.e("failed!","");
                                 }
 
                             }
@@ -153,7 +151,6 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,1);
-//        uploadPic();
     }
 
     @Override
@@ -172,29 +169,22 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         String filename = format.format(now);
 
         storageReference = FirebaseStorage.getInstance().getReference(filename);
-//        Log.e("de lieu lay ve",""+storageReference.getDownloadUrl());
         storageReference.putFile(Uri.parse(imgUri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess( UploadTask.TaskSnapshot taskSnapshot) {
-//                Toast.makeText(UpdateMainItemActivity.this,"Successfully Uploaded!!!",Toast.LENGTH_SHORT);
+                Toast.makeText(UpdateMainItemActivity.this,"Successfully Uploaded Iamge!!!",Toast.LENGTH_LONG);
                 Picasso.get().load(imgUri).into(pic);
-
-                Log.e("link",""+ storageReference.getDownloadUrl());
-
                 taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         imgUri = uri.toString();
-                        Log.e("lay ra sau khi success",""+imgUri);
                     }
                 });
-                Log.e("lay ra sau khi success",""+imgUri);
             }
         }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isComplete()){
-                    Log.e("cai result",""+task.getResult().getMetadata().getReference().getDownloadUrl());
                 }
 
             }

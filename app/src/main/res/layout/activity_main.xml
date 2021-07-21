@@ -53,6 +53,7 @@
         android:layout_height="@dimen/height_48"
         android:layout_marginTop="@dimen/marign_5"
         android:background="@drawable/rectloginlogup"
+        android:onClick="search"
         android:text="@string/search"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"
