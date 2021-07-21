@@ -1,13 +1,11 @@
 package com.example.myapplication.controller;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,23 +13,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.dao.QuestionDAO;
 import com.example.myapplication.model.Question;
-import com.google.android.gms.tasks.Continuation;
+import com.example.myapplication.ultility.LoadingPopup;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -40,15 +39,18 @@ public class UpdateMainItemActivity extends AppCompatActivity {
 
     Question question = new Question();
     private ImageView pic ;
-    public Uri imgUri ;
+    public String imgUri ;
     StorageReference storageReference;
     ProgressDialog progressDialog;
     String imageURL;
+    Dialog loadingDiag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_main_item);
+
+//        QuestionDAO.getAllQuestion();
 
         Intent data = getIntent();
         Question question = (Question) data.getSerializableExtra("ques");
@@ -68,7 +70,8 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         Button choosePic = findViewById(R.id.btn_update_image);
         Button uploadImg = findViewById(R.id.btn_upload_img);
 
-        imageURL = question.getImageURL();
+        imgUri = question.getImageURL();
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> URL hinh "+imgUri.toString());
 
         uploadImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,13 +101,24 @@ public class UpdateMainItemActivity extends AppCompatActivity {
                 HashMap map = new HashMap();
                 map.put("answer",question.getAnswer());
                 map.put("level",question.getLevel());
-                map.put("imageURL",imageURL);
-                MainActivity.db.collection("questions").document(question.getId()).update(map)
+                map.put("imageURL",imgUri);
+                MainActivity.db.collection("questions").document(question.getId().toString()).update(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
-                                    Log.e("update: ","");
+
+
+                                    Intent intent = new Intent(UpdateMainItemActivity.this, MainActivity.class);
+                                    intent.putExtra("quesBack",question);
+                                    setResult(0,intent);
+                                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> trc khi ve menu "+question.getAnswer());
+                                    QuestionDAO.getAllQuestion();
+                                    loadingDiag = LoadingPopup.loadingDialog(UpdateMainItemActivity.this);
+                                    loadingDiag.show();
+
+                                    new Handler().postDelayed(UpdateMainItemActivity.this::closeUpdate,2000);
+
                                 }else {
                                     Log.e("failed!","");
                                 }
@@ -122,9 +136,15 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         cancelUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setResult(1);
                 finish();
             }
         });
+    }
+
+    public void closeUpdate(){
+        loadingDiag.dismiss();
+        finish();
     }
 
 
@@ -133,19 +153,19 @@ public class UpdateMainItemActivity extends AppCompatActivity {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,1);
+//        uploadPic();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode == RESULT_OK && data!=null && data.getData()!=null){
-            imgUri = data.getData();
+            imgUri = data.getData().toString();
             Picasso.get().load(imgUri).into(pic);
         }
     }
 
     private void uploadPic(){
-
         progressDialog = new ProgressDialog(this);
         SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         Date now = new Date();
@@ -153,7 +173,7 @@ public class UpdateMainItemActivity extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference(filename);
 //        Log.e("de lieu lay ve",""+storageReference.getDownloadUrl());
-        storageReference.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        storageReference.putFile(Uri.parse(imgUri)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess( UploadTask.TaskSnapshot taskSnapshot) {
 //                Toast.makeText(UpdateMainItemActivity.this,"Successfully Uploaded!!!",Toast.LENGTH_SHORT);
@@ -164,11 +184,11 @@ public class UpdateMainItemActivity extends AppCompatActivity {
                 taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        imageURL = uri.toString();
-                        Log.e("lay ra sau khi success",""+imageURL);
+                        imgUri = uri.toString();
+                        Log.e("lay ra sau khi success",""+imgUri);
                     }
                 });
-                Log.e("lay ra sau khi success",""+imageURL);
+                Log.e("lay ra sau khi success",""+imgUri);
             }
         }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -188,5 +208,6 @@ public class UpdateMainItemActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

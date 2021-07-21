@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
     public static FirebaseUser user;
     public static Context context;
     ArrayAdapter adapter ;
-    QuestionDAO questionDAO = new QuestionDAO();
     private int pos = -1;
     private ArrayList<Question> list ;
+    private ArrayList<Question> searchList ;
 
 
 
@@ -55,33 +55,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-       list = QuestionDAO.listQuestion;
+        list = QuestionDAO.listQuestion;
 
-       adapter = new com.example.myapplication.controller.adapter.ArrayAdapter(this,0,QuestionDAO.listQuestion);
-//       listQuestion = QuestionDAO.listQuestion.get(0);
-
-
-//        Log.e("qua be main" , ""+QuestionDAO.listQuestion.get(0).getAnswer());
+        adapter = new com.example.myapplication.controller.adapter.ArrayAdapter(this,0,list);
         ListView listView = findViewById(R.id.listView);
         registerForContextMenu(listView);
         listView.setAdapter(adapter);
 
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                pos = position;
-//                Toast.makeText(MainActivity.this,"vi tri "+pos,Toast.LENGTH_SHORT);
-//            }
-//        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e("gia tri cua bien",""+position);
                 pos = position;
-                Log.e("gia tri trong object ",""+QuestionDAO.listQuestion.get(position).getId());
+                Log.e("gia tri trong object ",""+list.get(position).getId());
 
-                Question question = new Question(QuestionDAO.listQuestion.get(position).getId()
+                Question question = new Question(list.get(position).getId()
                         ,QuestionDAO.listQuestion.get(position).getImageURL()
                         ,QuestionDAO.listQuestion.get(position).getAnswer()
                         ,QuestionDAO.listQuestion.get(position).getLevel()
@@ -100,8 +89,11 @@ public class MainActivity extends AppCompatActivity {
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-                        //update an item base on position
-//                        updateAdapter();
+                        if (result.getResultCode() ==0){
+                            updateAdapter();
+                        }else if (result.getResultCode() ==1){
+
+                        }
                 }
             });
 
@@ -118,11 +110,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateAdapter(){
-        adapter = new ArrayAdapter(this,0,QuestionDAO.listQuestion);
+        Log.e(">>>>>>>>>>>>>>>","co vo");
+        list = QuestionDAO.listQuestion;
+        adapter = new com.example.myapplication.controller.adapter.ArrayAdapter(this,0,list);
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
     }
-
 
 
 }
