@@ -67,14 +67,18 @@
     <!--  rv_main_quest is used to show all question to the main screen  -->
 
     <!--  btn_logout is used to logout  -->
+
+    <!--  btn_logout is used to direct to activity_add_main_item layout  -->
+
+    <!--  btn_profile is used to direct to activity_profile layout  -->
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_logout"
         android:layout_width="@dimen/width_120"
         android:layout_height="@dimen/height_48"
-        android:background="@drawable/cut_1"
+        android:background="@drawable/rectloginlogup"
         android:gravity="center"
         android:onClick="onButtonLogoutClick"
-        android:paddingRight="15dp"
         android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"
@@ -82,15 +86,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
         app:layout_constraintEnd_toStartOf="@+id/btn_main_add"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1" />
 
-    <!--  btn_logout is used to direct to activity_add_main_item layout  -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_main_add"
         android:layout_width="@dimen/width_120"
         android:layout_height="@dimen/height_48"
-        android:background="@drawable/cut_2"
+        android:background="@drawable/rectloginlogup"
         android:onClick="onButtonAddQuestionClick"
         android:text="@string/addquestion"
         android:textAllCaps="false"
@@ -99,20 +102,18 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/id_Main_Guideline_4"
         app:layout_constraintEnd_toStartOf="@+id/btn_profile"
-        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="@+id/id_Main_Guideline_1" />
 
-    <!--  btn_profile is used to direct to activity_profile layout  -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_profile"
-        android:layout_width="@dimen/width_120"
-        android:layout_height="@dimen/height_48"
+        android:layout_width="106dp"
+        android:layout_height="47dp"
         android:layout_gravity="center"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/cut_3"
+        android:background="@drawable/rectloginlogup"
         android:onClick="onButtonProfileClick"
-        android:paddingLeft="15dp"
         android:text="@string/profile"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"

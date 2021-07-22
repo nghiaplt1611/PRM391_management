@@ -11,10 +11,11 @@
 
     <!--  btn_update_image is used to update question's image  -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_update_image"
+        android:id="@+id/btn_add_image"
         android:layout_width="@dimen/width_160"
         android:layout_height="@dimen/height_48"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:background="@drawable/rectloginlogup"
         android:text="@string/chooseimage"
         android:textAllCaps="false"
@@ -28,13 +29,15 @@
         android:id="@+id/txt_update_answer"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_48"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="@string/answer_list"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_20"
         app:layout_constraintBottom_toTopOf="@+id/txt_update_level"
-        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1" />
+        app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
+        app:layout_constraintTop_toBottomOf="@+id/img_update_image" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_update_level"
@@ -127,6 +130,7 @@
         android:id="@+id/update_txt_answer"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:layout_marginBottom="20dp"
@@ -137,7 +141,8 @@
         android:paddingRight="15dp"
         android:text="Answer"
         app:layout_constraintBottom_toTopOf="@+id/update_txt_level"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_update_image" />
 
     <EditText
         android:id="@+id/update_txt_level"
@@ -159,6 +164,7 @@
         android:id="@+id/img_update_image"
         android:layout_width="200dp"
         android:layout_height="150dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
         app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3"
         app:srcCompat="@drawable/_014_07_17_00_43_58_1" />
@@ -179,6 +185,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toEndOf="@+id/img_update_image"
-        app:layout_constraintTop_toBottomOf="@+id/btn_update_image" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

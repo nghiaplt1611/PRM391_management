@@ -9,7 +9,7 @@
 
     <!--  Image of the question  -->
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_update"
+        android:id="@+id/img_add"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:background="@color/crosscolor"
@@ -20,24 +20,24 @@
         app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3" />
 
     <!--  btn_update_image is used to update question's image  -->
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_update_image"
+        android:id="@+id/btn_add_image"
         android:layout_width="@dimen/width_160"
         android:layout_height="@dimen/height_48"
         android:layout_gravity="center"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/rectloginlogup"
+        android:onClick="openFileChooser"
         android:text="@string/chooseimage"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"
         android:textSize="@dimen/textsize_18"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etxt_add_answer"
         app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
-        app:layout_constraintHorizontal_bias="0.851"
-        app:layout_constraintStart_toEndOf="@+id/img_update"
-        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3"
-        app:layout_constraintVertical_bias="0.381" />
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/img_add"
+        app:layout_constraintTop_toTopOf="@+id/id_Update_Guideline_3" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtID"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toStartOf="@+id/etxt_add_answer"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/id_Update_Guideline_1"
-        app:layout_constraintTop_toBottomOf="@+id/img_update"
+        app:layout_constraintTop_toBottomOf="@+id/img_add"
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -139,6 +139,7 @@
         android:layout_marginRight="52dp"
         android:layout_marginBottom="196dp"
         android:background="@drawable/rectloginlogup"
+        android:onClick="onAddButtonClick"
         android:text="@string/addnew"
         android:textAllCaps="false"
         android:textColor="@color/thirdtext"
@@ -178,5 +179,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.97" />
+
+    <Button
+        android:id="@+id/btn_upnew_img"
+        android:layout_width="160dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rectloginlogup"
+        android:onClick="uploadPic"
+        android:text="Upload"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/etxt_add_answer"
+        app:layout_constraintEnd_toStartOf="@+id/id_Update_Guideline_2"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/img_add"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_image"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

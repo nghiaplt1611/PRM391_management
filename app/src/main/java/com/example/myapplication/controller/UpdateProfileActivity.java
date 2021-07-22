@@ -1,7 +1,5 @@
 package com.example.myapplication.controller;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.myapplication.dao.UserDAO;
@@ -29,13 +29,11 @@ public class UpdateProfileActivity extends AppCompatActivity {
         loadData();
     }
 
-    public void loadData(){
-        CircleImageView avatar = (CircleImageView) findViewById(R.id.img_profile_image);
+    public void loadData() {
+        CircleImageView avatar = (CircleImageView) findViewById(R.id.img_profile_update);
         EditText txtFullName = (EditText) findViewById(R.id.txt_profile_update_name);
         TextView txtRole = (TextView) findViewById(R.id.txt_profile_update_role);
         EditText txtYearOfBirth = (EditText) findViewById(R.id.txt_profile_update_yob);
-
-        Log.e("In Avatar","Avatar:"+UserDAO.account.getAvatar());
 
         avatar.setImageResource(GetAvatarResource.getAvatarImageID(UserDAO.account.getAvatar()));
         txtRole.setText("Question Manager");
@@ -43,33 +41,31 @@ public class UpdateProfileActivity extends AppCompatActivity {
         txtYearOfBirth.setText(String.valueOf(UserDAO.account.getYearOfBirth()));
     }
 
-    public void onButtonUpdateClick(View view){
+    public void onButtonUpdateClick(View view) {
         EditText txtFullName = (EditText) findViewById(R.id.txt_profile_update_name);
         EditText txtYearOfBirth = (EditText) findViewById(R.id.txt_profile_update_yob);
 
         String fullName = txtFullName.getText().toString();
         String yearOfBirth = txtYearOfBirth.getText().toString();
 
-        if (Validation.checkNullData(new String[]{fullName, yearOfBirth})){
-            if (fullName.isEmpty()){
+        if (Validation.checkNullData(new String[]{fullName, yearOfBirth})) {
+            if (fullName.isEmpty()) {
                 txtFullName.setError("Full name cannot be empty! Please input!");
             }
 
-            if (yearOfBirth.isEmpty()){
+            if (yearOfBirth.isEmpty()) {
                 txtYearOfBirth.setError("Year of birth cannot be empty! Please input!");
             }
-        }
-        else if (!Validation.checkUpdateFormat(fullName, yearOfBirth)){
-            if (!Validation.checkFullNameFormat(fullName)){
+        } else if (!Validation.checkUpdateFormat(fullName, yearOfBirth)) {
+            if (!Validation.checkFullNameFormat(fullName)) {
                 txtFullName.setError("Full name must be in correct format. (Ex: Tri Thanh)");
             }
 
-            if (!Validation.checkYearOfBirth(yearOfBirth)){
+            if (!Validation.checkYearOfBirth(yearOfBirth)) {
                 int currentYear = Calendar.getInstance().get(Calendar.YEAR);
                 txtYearOfBirth.setError("Year of birth must be a positive number between 1900 and " + currentYear);
             }
-        }
-        else {
+        } else {
             UserDAO.account.setFullName(fullName);
             UserDAO.account.setYearOfBirth(Integer.parseInt(yearOfBirth));
             UserDAO.updateProfile(UserDAO.account.getId(), UserDAO.account.getFullName(), UserDAO.account.getYearOfBirth());
@@ -92,12 +88,12 @@ public class UpdateProfileActivity extends AppCompatActivity {
         }
     }
 
-    public void hideFullNameError(View view){
+    public void hideFullNameError(View view) {
         EditText txtFullName = findViewById(R.id.txt_profile_update_name);
         txtFullName.setError(null);
     }
 
-    public void hideYearOfBirthError(View view){
+    public void hideYearOfBirthError(View view) {
         EditText txtYearOfBirth = findViewById(R.id.txt_profile_update_yob);
         txtYearOfBirth.setError(null);
     }

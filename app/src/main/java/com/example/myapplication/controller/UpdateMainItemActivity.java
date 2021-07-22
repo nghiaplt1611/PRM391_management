@@ -49,12 +49,11 @@ public class UpdateMainItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_main_item);
-
+        getSupportActionBar().hide();
 //        QuestionDAO.getAllQuestion();
 
         Intent data = getIntent();
         Question question = (Question) data.getSerializableExtra("ques");
-
 
 
         pic = findViewById(R.id.img_update_image);
@@ -67,11 +66,11 @@ public class UpdateMainItemActivity extends AppCompatActivity {
 
         Button updateBut = findViewById(R.id.btn_update_confirm);
         Button cancelUp = findViewById(R.id.btn_update_cancel);
-        Button choosePic = findViewById(R.id.btn_update_image);
+        Button choosePic = findViewById(R.id.btn_add_image);
         Button uploadImg = findViewById(R.id.btn_upload_img);
 
         imgUri = question.getImageURL();
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> URL hinh "+imgUri.toString());
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> URL hinh "+ imgUri);
 
         uploadImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +101,7 @@ public class UpdateMainItemActivity extends AppCompatActivity {
                 map.put("answer",question.getAnswer().toUpperCase());
                 map.put("level",question.getLevel());
                 map.put("imageURL",imgUri);
-                MainActivity.db.collection("questions").document(question.getId().toString()).update(map)
+                MainActivity.db.collection("questions").document(question.getId()).update(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

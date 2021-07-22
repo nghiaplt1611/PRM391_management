@@ -16,9 +16,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firestore.v1.WriteResult;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class QuestionDAO {
@@ -81,9 +84,27 @@ public class QuestionDAO {
         });
     }
 
+    public void addQuestion(Question question){
+        MainActivity.db = FirebaseFirestore.getInstance();
+        Map<String, Object> data = new HashMap<>();
+        data.put("answer", question.getAnswer());
+        data.put("imageURL", question.getImageURL());
+        data.put("level",question.getLevel());
+        data.put("status",question.isStatus());
 
-
-
-
-
+        MainActivity.db.collection("questions")
+                .add(data)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("Id moi", "DocumentSnapshot written with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Loi Adding", "Error adding document", e);
+                    }
+                });
+    }
 }
