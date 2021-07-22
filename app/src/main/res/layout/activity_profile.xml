@@ -40,24 +40,6 @@
         app:layout_constraintTop_toTopOf="@+id/id_Profile_Guideline_3" />
 
     <!--  btn_camera is used to choose avatar  -->
-    <Button
-        android:id="@+id/btn_camera"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="136dp"
-        android:background="@drawable/camera_button"
-        android:foregroundGravity="center"
-        app:backgroundTint="@null"
-        app:icon="@drawable/camera"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/id_Profile_Guideline_4"
-        app:layout_constraintEnd_toStartOf="@+id/id_Profile_Guideline_2"
-        app:layout_constraintHorizontal_bias="0.709"
-        app:layout_constraintStart_toStartOf="@+id/id_Profile_Guideline_1"
-        app:layout_constraintTop_toTopOf="@+id/img_profile_image"
-        app:layout_constraintVertical_bias="0.0" />
 
     <!--  Field is used to display QM's name  -->
     <TextView

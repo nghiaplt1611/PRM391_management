@@ -121,21 +121,6 @@
             android:background="@color/linecolor" />
 
         <!-- Textview is used to direct user to the forgot password site (not design yet) -->
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/lbl_forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/marign_8"
-            android:layout_marginLeft="@dimen/marign_8"
-            android:layout_marginTop="@dimen/marign_12"
-            android:layout_marginEnd="@dimen/marign_8"
-            android:layout_marginRight="@dimen/marign_10"
-            android:onClick="forgotPasswordIntent"
-            android:text="@string/forgot_password"
-            android:textColor="@color/clickable_text"
-            android:textSize="@dimen/textsize_14"
-            android:textStyle="bold" />
 
         <!-- Button is used to log in -->
         <androidx.appcompat.widget.AppCompatButton

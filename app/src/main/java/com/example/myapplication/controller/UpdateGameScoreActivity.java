@@ -2,10 +2,12 @@ package com.example.myapplication.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.dao.ScorcesDAO;
 import com.example.myapplication.model.Scores;
@@ -59,6 +61,15 @@ public class UpdateGameScoreActivity extends AppCompatActivity {
         map.put("passedLevelScore",Integer.parseInt(pass.getText().toString()));
         map.put("wrongAnswerScore",Integer.parseInt(wrong.getText().toString()));
         ScorcesDAO.updateScores(map);
+    }
+
+    public void cancel(View view){
+        MainActivity.mAuth.signOut();
+        MainActivity.mAuth = null;
+        MainActivity.user = null;
+        Intent intent = new Intent(this, LogInActivity.class);
+        this.startActivity(intent);
+        this.finishAffinity();
     }
 
 

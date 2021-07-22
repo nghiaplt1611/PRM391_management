@@ -57,26 +57,49 @@ public class LogInActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        MainActivity.user = MainActivity.mAuth.getCurrentUser();
+                        if (txtEmail.getText().toString().trim().equals("gtwadmin@gmail.com")){
+                            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> co qua 1");
+                            MainActivity.user = MainActivity.mAuth.getCurrentUser();
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(LogInActivity.this);
-                        builder.setMessage("Login successfully");
-                        builder.setTitle("Notification!");
-                        builder.setCancelable(false);
-                        builder.setPositiveButton("Question Management", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Login();
-                            }
-                        });
-                        // Create the Alert dialog
-                        AlertDialog alertDialog = builder.create();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(LogInActivity.this);
+                            builder.setMessage("Login successfully");
+                            builder.setTitle("Notification!");
+                            builder.setCancelable(false);
+                            builder.setPositiveButton("Director", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    LoginAsAd();
+                                }
+                            });
+                            // Create the Alert dialog
+                            AlertDialog alertDialog = builder.create();
 
-                        // Show the Alert Dialog box
-                        alertDialog.show();
+                            // Show the Alert Dialog box
+                            alertDialog.show();
+                        }else {
+                            MainActivity.user = MainActivity.mAuth.getCurrentUser();
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(LogInActivity.this);
+                            builder.setMessage("Login successfully");
+                            builder.setTitle("Notification!");
+                            builder.setCancelable(false);
+                            builder.setPositiveButton("Question Management", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Login();
+                                }
+                            });
+                            // Create the Alert dialog
+                            AlertDialog alertDialog = builder.create();
+
+                            // Show the Alert Dialog box
+                            alertDialog.show();
+                        }
+
 
                     } else {
-                        AlertDialogBuilder.showAlertDialog("Alert!", "Email or password is invalid!!!", LogInActivity.this);
+                        AlertDialog dialog = AlertDialogBuilder.showAlertDialog("Alert!", "Email or password is invalid!!!", LogInActivity.this);
+                        dialog.show();
                     }
                 }
             });
@@ -109,19 +132,34 @@ public class LogInActivity extends AppCompatActivity {
 
 
     public void Login() {
-
         QuestionDAO.getAllQuestion();
         ScorcesDAO.getScores();
         LoadData.loadUserData(MainActivity.user);
         loadingDiag = LoadingPopup.loadingDialog(this);
         loadingDiag.show();
         new Handler().postDelayed(this::openList, 2000);
+    }
 
+    public void LoginAsAd(){
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> cos qua 2");
+        ScorcesDAO.getScores();
+        LoadData.loadUserData(MainActivity.user);
+        loadingDiag = LoadingPopup.loadingDialog(this);
+        loadingDiag.show();
+        new Handler().postDelayed(this::openScore, 2000);
     }
 
     public void openList() {
         loadingDiag.dismiss();
         Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+        LogInActivity.this.startActivity(intent);
+        finish();
+    }
+
+    public void openScore(){
+        System.out.println(">>>>>>>>>>>>>>>>> co qua 3");;
+        loadingDiag.dismiss();
+        Intent intent = new Intent(LogInActivity.this, UpdateGameScoreActivity.class);
         LogInActivity.this.startActivity(intent);
         finish();
     }
