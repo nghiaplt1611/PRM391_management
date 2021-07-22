@@ -97,4 +97,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
         EditText txtYearOfBirth = findViewById(R.id.txt_profile_update_yob);
         txtYearOfBirth.setError(null);
     }
+
+    public void returnProfileUser(View view){
+        this.finish();
+    }
 }

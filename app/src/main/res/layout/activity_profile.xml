@@ -13,6 +13,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@drawable/rectmenu"
+        android:onClick="returnToUserMenuIntent"
         app:backgroundTint="@null"
         app:icon="@drawable/back"
         app:iconGravity="textStart"

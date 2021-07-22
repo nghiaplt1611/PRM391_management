@@ -62,7 +62,9 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void returnToUserMenuIntent(View view){
-        this.finish();
+        Intent intent = new Intent(ProfileActivity.this,MainActivity.class);
+        this.startActivity(intent);
+        finish();
     }
 
 

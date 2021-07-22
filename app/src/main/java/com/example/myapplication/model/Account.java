@@ -7,14 +7,16 @@ public class Account implements Serializable {
     private String email;
     private String fullName;
     private int yearOfBirth;
-    private String questionID;
-
-
+    private String question;
 
     private int numOfLetterShown;
     private String achievements;
     private int score;
     private int avatar;
+    private boolean useHint;
+    private boolean finishedGame;
+
+
 
     public Account() {
     }
@@ -51,12 +53,12 @@ public class Account implements Serializable {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public String getQuestionID() {
-        return questionID;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setQuestionID(String questionID) {
-        this.questionID = questionID;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public int getNumOfLetterShown() {
@@ -89,5 +91,21 @@ public class Account implements Serializable {
 
     public void setAvatar(int avatar) {
         this.avatar = avatar;
+    }
+
+    public boolean isFinishedGame() {
+        return finishedGame;
+    }
+
+    public void setFinishedGame(boolean finishedGame) {
+        this.finishedGame = finishedGame;
+    }
+
+    public boolean isUseHint() {
+        return useHint;
+    }
+
+    public void setUseHint(boolean useHint) {
+        this.useHint = useHint;
     }
 }

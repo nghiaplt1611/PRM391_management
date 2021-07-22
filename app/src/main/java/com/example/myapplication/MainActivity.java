@@ -55,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,35 +64,14 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         context = getApplicationContext();
         checkConnection();
+        setList();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         user = mAuth.getCurrentUser();
-        if (user != null){
-            LoadData.loadUserData(user);
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Welcome back! My manager!!!");
-            builder.setTitle("Automatic logged in!");
-            builder.setCancelable(false);
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    setList();
-                    dialog.cancel();
-                    //loadingDiag.cancel();
-                    //finish();
-                    //userMainMenuIntent(findViewById(android.R.id.content).getRootView());
-                }
-            });
-            // Create the Alert dialog
-            AlertDialog alertDialog = builder.create();
-
-            // Show the Alert Dialog box
-            alertDialog.show();
-        }
-        else{
+        if(user == null){
             Intent intent = new Intent(this, LogInActivity.class);
             this.startActivity(intent);
             finish();
@@ -119,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     public void onButtonAddQuestionClick(View view){
         Intent intent = new Intent(this, AddMainItemActivity.class);
         this.startActivity(intent);
+        finish();
     }
 
     public void checkConnection() {
@@ -130,9 +107,9 @@ public class MainActivity extends AppCompatActivity {
             builder.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//                    Intent intent = new Intent(MainActivity.this, SlashScreenActivity.class);
-//                    startActivity(intent);
-//                    finish();
+                    Intent intent = new Intent(MainActivity.this, LogInActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             });
             // Create the Alert dialog

@@ -15,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.dao.QuestionDAO;
+import com.example.myapplication.dao.ScorcesDAO;
 import com.example.myapplication.ultility.AlertDialogBuilder;
+import com.example.myapplication.ultility.LoadData;
 import com.example.myapplication.ultility.LoadingPopup;
 import com.example.myapplication.ultility.Validation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -107,7 +109,10 @@ public class LogInActivity extends AppCompatActivity {
 
 
     public void Login() {
+
         QuestionDAO.getAllQuestion();
+        ScorcesDAO.getScores();
+        LoadData.loadUserData(MainActivity.user);
         loadingDiag = LoadingPopup.loadingDialog(this);
         loadingDiag.show();
         new Handler().postDelayed(this::openList, 2000);
@@ -118,6 +123,6 @@ public class LogInActivity extends AppCompatActivity {
         loadingDiag.dismiss();
         Intent intent = new Intent(LogInActivity.this, MainActivity.class);
         LogInActivity.this.startActivity(intent);
-
+        finish();
     }
 }

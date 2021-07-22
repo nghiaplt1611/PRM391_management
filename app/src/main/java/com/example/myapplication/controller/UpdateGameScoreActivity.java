@@ -46,7 +46,7 @@ public class UpdateGameScoreActivity extends AppCompatActivity {
         change.setText(String.valueOf(scores.getChangeQuestionScore()));
         hint.setText(String.valueOf(scores.getHintScore()));
         initial.setText(String.valueOf(scores.getInitialScore()));
-        pass.setText(String.valueOf(scores.getInitialScore()));
+        pass.setText(String.valueOf(scores.getPassedLevelScore()));
         wrong.setText(String.valueOf(scores.getWrongAnswerScore()));
 
     }
