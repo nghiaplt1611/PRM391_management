@@ -58,7 +58,6 @@ public class LogInActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         if (txtEmail.getText().toString().trim().equals("gtwadmin@gmail.com")){
-                            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> co qua 1");
                             MainActivity.user = MainActivity.mAuth.getCurrentUser();
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(LogInActivity.this);
@@ -133,7 +132,6 @@ public class LogInActivity extends AppCompatActivity {
 
     public void Login() {
         QuestionDAO.getAllQuestion();
-        ScorcesDAO.getScores();
         LoadData.loadUserData(MainActivity.user);
         loadingDiag = LoadingPopup.loadingDialog(this);
         loadingDiag.show();
@@ -141,7 +139,6 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void LoginAsAd(){
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> cos qua 2");
         ScorcesDAO.getScores();
         LoadData.loadUserData(MainActivity.user);
         loadingDiag = LoadingPopup.loadingDialog(this);
@@ -157,7 +154,6 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void openScore(){
-        System.out.println(">>>>>>>>>>>>>>>>> co qua 3");;
         loadingDiag.dismiss();
         Intent intent = new Intent(LogInActivity.this, UpdateGameScoreActivity.class);
         LogInActivity.this.startActivity(intent);

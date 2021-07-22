@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
         originList = QuestionDAO.listQuestion;
         list = QuestionDAO.listQuestion;
-
         updateAdapter(list);
 
 
